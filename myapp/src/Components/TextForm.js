@@ -4,14 +4,17 @@ export default function TextForm(props) {
     //console.log("You clicked"+text);
     let newText=text.toUpperCase();
     setText(newText)
+    props.showAlert("Converted to uppercase","success");
   }
   const handleLoClick=()=>{
     //console.log("You clicked"+text);
     let newText=text.toLowerCase();
     setText(newText)
+    props.showAlert("Converted to lowercase","success");
   }
   const handleClearText=()=>{
     setText('')
+    props.showAlert("Text cleared","success");
   }
   const handleUploadText=()=>{
     // Create an input element (hidden)
@@ -30,6 +33,7 @@ export default function TextForm(props) {
     };
 // Trigger the file input click event
     input.click();
+    props.showAlert("Upload now","success");
   };
   const handleDownload=()=>{
       
@@ -56,6 +60,7 @@ export default function TextForm(props) {
       // Remove the temporary anchor and URL object
       document.body.removeChild(tempAnchor);
       URL.revokeObjectURL(url);
+      props.showAlert("Downloading","success");
       
     }
 
